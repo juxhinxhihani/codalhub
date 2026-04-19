@@ -74,45 +74,50 @@ export function initSectionSpiral(canvas, size, lineCount, opacity) {
   const cx = size / 2, cy = size / 2
   let rot = 0
   let rafId
+  let isVisible = false
+
+  const observer = new IntersectionObserver((entries) => {
+    isVisible = entries[0].isIntersecting
+  }, { threshold: 0.1 })
+  observer.observe(canvas)
 
   function draw() {
-    ctx.clearRect(0, 0, size, size)
-    const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.5)
-    bg.addColorStop(0, `rgba(14,10,60,${opacity})`)
-    bg.addColorStop(1, `rgba(6,4,30,${opacity})`)
-    ctx.fillStyle = bg
-    ctx.beginPath()
-    ctx.arc(cx, cy, size * 0.5, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.save()
-    ctx.beginPath()
-    ctx.arc(cx, cy, size * 0.48, 0, Math.PI * 2)
-    ctx.clip()
-    for (let i = 0; i < lineCount; i++) {
-      const ba = (i / lineCount) * Math.PI * 2 + rot
-      ctx.beginPath()
-      for (let s = 0; s <= 50; s++) {
-        const t = s / 50, r = size * 0.08 + (size * 0.4) * t, a = ba + 1.5 * t
-        s === 0 ? ctx.moveTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r)
-                : ctx.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r)
-      }
-      const rgb = sRGB(ba)
-      ctx.strokeStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${(opacity * 0.8).toFixed(2)})`
-      ctx.lineWidth = 0.8
-      ctx.shadowColor = ctx.strokeStyle
-      ctx.shadowBlur = 3
-      ctx.stroke()
-    }
-    ctx.shadowBlur = 0
-    ctx.fillStyle = `rgba(6,4,40,${opacity})`
-    ctx.beginPath()
-    ctx.arc(cx, cy, size * 0.09, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.restore()
     rot += 0.008
+    if (isVisible) {
+      ctx.clearRect(0, 0, size, size)
+      const bg = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.5)
+      bg.addColorStop(0, `rgba(14,10,60,${opacity})`)
+      bg.addColorStop(1, `rgba(6,4,30,${opacity})`)
+      ctx.fillStyle = bg
+      ctx.beginPath()
+      ctx.arc(cx, cy, size * 0.5, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.save()
+      ctx.beginPath()
+      ctx.arc(cx, cy, size * 0.48, 0, Math.PI * 2)
+      ctx.clip()
+      for (let i = 0; i < lineCount; i++) {
+        const ba = (i / lineCount) * Math.PI * 2 + rot
+        ctx.beginPath()
+        for (let s = 0; s <= 50; s++) {
+          const t = s / 50, r = size * 0.08 + (size * 0.4) * t, a = ba + 1.5 * t
+          s === 0 ? ctx.moveTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r)
+                  : ctx.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r)
+        }
+        const rgb = sRGB(ba)
+        ctx.strokeStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${(opacity * 0.8).toFixed(2)})`
+        ctx.lineWidth = 0.8
+        ctx.stroke()
+      }
+      ctx.fillStyle = `rgba(6,4,40,${opacity})`
+      ctx.beginPath()
+      ctx.arc(cx, cy, size * 0.09, 0, Math.PI * 2)
+      ctx.fill()
+      ctx.restore()
+    }
     rafId = requestAnimationFrame(draw)
   }
 
   draw()
-  return () => cancelAnimationFrame(rafId)
+  return () => { cancelAnimationFrame(rafId); observer.disconnect() }
 }

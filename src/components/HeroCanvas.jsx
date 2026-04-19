@@ -41,13 +41,13 @@ export default function HeroCanvas() {
     let breathe = 0
     let mouseInWindow = false
     let rafId
+    let pendingMX = null, pendingMY = null, mousePending = false
 
     resize()
     mx = W / 2; my = H / 2; smx = mx; smy = my
 
     const onMouseMove = (e) => {
-      pvx = (e.clientX - smx) * 0.1; pvy = (e.clientY - smy) * 0.1
-      mx = e.clientX; my = e.clientY; mouseInWindow = true
+      pendingMX = e.clientX; pendingMY = e.clientY; mousePending = true; mouseInWindow = true
     }
     const onMouseLeave = () => { mouseInWindow = false }
     const onScroll = () => {
@@ -58,12 +58,16 @@ export default function HeroCanvas() {
       rotVel -= delta * 0.001
     }
 
-    window.addEventListener('mousemove', onMouseMove)
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
     window.addEventListener('mouseleave', onMouseLeave)
-    window.addEventListener('scroll', onScroll)
-    window.addEventListener('resize', resize)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', resize, { passive: true })
 
     function draw() {
+      if (mousePending) {
+        pvx = (pendingMX - smx) * 0.1; pvy = (pendingMY - smy) * 0.1
+        mx = pendingMX; my = pendingMY; mousePending = false
+      }
       breathe += 0.012
       smx += (mx - smx) * 0.06 + pvx * 0.3
       smy += (my - smy) * 0.06 + pvy * 0.3
@@ -121,7 +125,7 @@ export default function HeroCanvas() {
         grad.addColorStop(0.7, `rgba(${rr},${gg},${bb},${(peakAlpha * 0.28).toFixed(3)})`)
         grad.addColorStop(1, `rgba(${rr},${gg},${bb},0)`)
 
-        const STEPS = 90
+        const STEPS = 60
         ctx.beginPath()
         let first = true
         for (let s = 0; s <= STEPS; s++) {
@@ -133,15 +137,8 @@ export default function HeroCanvas() {
           if (first) { ctx.moveTo(px, py); first = false } else ctx.lineTo(px, py)
         }
 
-        ctx.shadowColor = `rgba(${rr},${gg},${bb},0.6)`
-        ctx.shadowBlur = 5 + proximity * mouseInfluence * 12
         ctx.strokeStyle = grad
         ctx.lineWidth = 1.2 + proximity * mouseInfluence * 0.8
-        ctx.stroke()
-
-        ctx.shadowBlur = 0
-        ctx.strokeStyle = grad
-        ctx.lineWidth = 0.6
         ctx.stroke()
       }
 

@@ -14,13 +14,19 @@ export default function BrandMark({ className }) {
     ctx.scale(dpr, dpr)
     let rot = 0
     let rafId
+    let isVisible = true
+
+    const observer = new IntersectionObserver((entries) => {
+      isVisible = entries[0].isIntersecting
+    })
+    observer.observe(c)
+
     const loop = () => {
-      drawMark(ctx, S, rot)
-      rot += 0.004
+      if (isVisible) { drawMark(ctx, S, rot); rot += 0.004 }
       rafId = requestAnimationFrame(loop)
     }
     loop()
-    return () => cancelAnimationFrame(rafId)
+    return () => { cancelAnimationFrame(rafId); observer.disconnect() }
   }, [])
 
   return <canvas ref={ref} className={className} />
