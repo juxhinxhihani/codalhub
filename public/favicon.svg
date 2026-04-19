@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#12103a"/>
+      <stop offset="100%" stop-color="#080620"/>
+    </radialGradient>
+    <clipPath id="clip">
+      <circle cx="32" cy="32" r="30"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <circle cx="32" cy="32" r="32" fill="url(#bg)"/>
+
+  <!-- Spiral arms, 20 arms rotated evenly, clipped to circle -->
+  <g clip-path="url(#clip)">
+    <!-- arm 0 -->
+    <path d="M35.3 27.7 Q43 18 52 14" fill="none" stroke="#00d4ff" stroke-width="1.1" stroke-opacity=".75" stroke-linecap="round"/>
+    <!-- arm 1 -->
+    <path d="M36.4 29.6 Q46 22 54 20" fill="none" stroke="#22ddcc" stroke-width="1.1" stroke-opacity=".72" stroke-linecap="round"/>
+    <!-- arm 2 -->
+    <path d="M36.6 31.8 Q47 27 54 28" fill="none" stroke="#44ffaa" stroke-width="1.1" stroke-opacity=".70" stroke-linecap="round"/>
+    <!-- arm 3 -->
+    <path d="M36 34 Q46 33 53 36" fill="none" stroke="#66ff88" stroke-width="1.1" stroke-opacity=".68" stroke-linecap="round"/>
+    <!-- arm 4 -->
+    <path d="M34.5 36 Q44 40 49 44" fill="none" stroke="#88ee66" stroke-width="1.1" stroke-opacity=".66" stroke-linecap="round"/>
+    <!-- arm 5 -->
+    <path d="M32.4 37.2 Q40 47 42 52" fill="none" stroke="#aad844" stroke-width="1.1" stroke-opacity=".64" stroke-linecap="round"/>
+    <!-- arm 6 -->
+    <path d="M30 37.4 Q34 48 33 54" fill="none" stroke="#cccc33" stroke-width="1.1" stroke-opacity=".62" stroke-linecap="round"/>
+    <!-- arm 7 -->
+    <path d="M27.8 36.6 Q28 48 24 52" fill="none" stroke="#ddaa33" stroke-width="1.1" stroke-opacity=".60" stroke-linecap="round"/>
+    <!-- arm 8 -->
+    <path d="M26 34.5 Q22 44 16 48" fill="none" stroke="#ee8833" stroke-width="1.1" stroke-opacity=".62" stroke-linecap="round"/>
+    <!-- arm 9 -->
+    <path d="M25 32 Q18 40 12 42" fill="none" stroke="#ee6655" stroke-width="1.1" stroke-opacity=".64" stroke-linecap="round"/>
+    <!-- arm 10 -->
+    <path d="M25.4 29.6 Q17 34 10 34" fill="none" stroke="#dd4488" stroke-width="1.1" stroke-opacity=".66" stroke-linecap="round"/>
+    <!-- arm 11 -->
+    <path d="M26.4 27.6 Q18 26 12 22" fill="none" stroke="#cc44ff" stroke-width="1.1" stroke-opacity=".70" stroke-linecap="round"/>
+    <!-- arm 12 -->
+    <path d="M27.8 26 Q20 17 16 12" fill="none" stroke="#bb55ff" stroke-width="1.1" stroke-opacity=".72" stroke-linecap="round"/>
+    <!-- arm 13 -->
+    <path d="M29.8 25.4 Q24 14 22 10" fill="none" stroke="#9966ff" stroke-width="1.1" stroke-opacity=".74" stroke-linecap="round"/>
+    <!-- arm 14 -->
+    <path d="M32 25.2 Q30 13 30 9" fill="none" stroke="#6688ff" stroke-width="1.1" stroke-opacity=".74" stroke-linecap="round"/>
+    <!-- arm 15 -->
+    <path d="M34.2 25.6 Q36 13 38 10" fill="none" stroke="#4499ff" stroke-width="1.1" stroke-opacity=".73" stroke-linecap="round"/>
+    <!-- arm 16 -->
+    <path d="M36 26.4 Q43 15 48 12" fill="none" stroke="#22aaff" stroke-width="1.1" stroke-opacity=".72" stroke-linecap="round"/>
+    <!-- arm 17 -->
+    <path d="M37.2 27.8 Q47 18 52 16" fill="none" stroke="#00bbff" stroke-width="1.1" stroke-opacity=".74" stroke-linecap="round"/>
+    <!-- arm 18 -->
+    <path d="M37.6 29.2 Q49 22 54 22" fill="none" stroke="#00ccff" stroke-width="1.1" stroke-opacity=".74" stroke-linecap="round"/>
+    <!-- arm 19 -->
+    <path d="M37.4 30.8 Q49 27 55 30" fill="none" stroke="#00d4ff" stroke-width="1.1" stroke-opacity=".75" stroke-linecap="round"/>
+  </g>
+
+  <!-- Centre void -->
+  <circle cx="32" cy="32" r="5.5" fill="#080620"/>
+</svg>

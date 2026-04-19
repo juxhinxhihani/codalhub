@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#0e0a3a"/>
+      <stop offset="100%" stop-color="#06041e"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="30%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00d4ff" stop-opacity=".08"/>
+      <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="75%" cy="50%" r="40%">
+      <stop offset="0%" stop-color="#cc44ff" stop-opacity=".07"/>
+      <stop offset="100%" stop-color="#cc44ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="logobg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#12103a"/>
+      <stop offset="100%" stop-color="#080620"/>
+    </radialGradient>
+    <clipPath id="logoclip">
+      <circle cx="200" cy="315" r="130"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Subtle grid lines -->
+  <line x1="0" y1="315" x2="1200" y2="315" stroke="rgba(244,242,237,.04)" stroke-width="1"/>
+  <line x1="600" y1="0" x2="600" y2="630" stroke="rgba(244,242,237,.04)" stroke-width="1"/>
+
+  <!-- Logo circle -->
+  <circle cx="200" cy="315" r="133" fill="rgba(0,212,255,.06)"/>
+  <circle cx="200" cy="315" r="130" fill="url(#logobg)"/>
+
+  <!-- Spiral arms in logo -->
+  <g clip-path="url(#logoclip)">
+    <path d="M213 289 Q243 255 272 238" fill="none" stroke="#00d4ff" stroke-width="2.2" stroke-opacity=".8" stroke-linecap="round"/>
+    <path d="M217 298 Q252 268 280 260" fill="none" stroke="#22ddcc" stroke-width="2.2" stroke-opacity=".77" stroke-linecap="round"/>
+    <path d="M218 308 Q256 283 282 280" fill="none" stroke="#44ffaa" stroke-width="2.2" stroke-opacity=".74" stroke-linecap="round"/>
+    <path d="M215 318 Q253 298 280 302" fill="none" stroke="#66ff88" stroke-width="2.2" stroke-opacity=".71" stroke-linecap="round"/>
+    <path d="M210 327 Q244 347 258 362" fill="none" stroke="#88ee66" stroke-width="2.2" stroke-opacity=".68" stroke-linecap="round"/>
+    <path d="M203 333 Q228 368 228 390" fill="none" stroke="#cccc33" stroke-width="2.2" stroke-opacity=".65" stroke-linecap="round"/>
+    <path d="M195 334 Q195 372 191 392" fill="none" stroke="#dd8833" stroke-width="2.2" stroke-opacity=".63" stroke-linecap="round"/>
+    <path d="M186 330 Q178 365 165 385" fill="none" stroke="#ee6655" stroke-width="2.2" stroke-opacity=".65" stroke-linecap="round"/>
+    <path d="M179 322 Q159 352 143 362" fill="none" stroke="#ee4488" stroke-width="2.2" stroke-opacity=".67" stroke-linecap="round"/>
+    <path d="M177 312 Q152 335 128 336" fill="none" stroke="#cc44ff" stroke-width="2.2" stroke-opacity=".70" stroke-linecap="round"/>
+    <path d="M179 301 Q156 278 138 264" fill="none" stroke="#bb55ff" stroke-width="2.2" stroke-opacity=".73" stroke-linecap="round"/>
+    <path d="M185 292 Q166 265 156 246" fill="none" stroke="#9966ff" stroke-width="2.2" stroke-opacity=".75" stroke-linecap="round"/>
+    <path d="M194 286 Q182 256 180 238" fill="none" stroke="#6688ff" stroke-width="2.2" stroke-opacity=".76" stroke-linecap="round"/>
+    <path d="M204 283 Q198 252 200 236" fill="none" stroke="#4499ff" stroke-width="2.2" stroke-opacity=".77" stroke-linecap="round"/>
+    <path d="M213 283 Q216 251 222 236" fill="none" stroke="#22aaff" stroke-width="2.2" stroke-opacity=".78" stroke-linecap="round"/>
+    <path d="M221 286 Q234 254 244 240" fill="none" stroke="#00bbff" stroke-width="2.2" stroke-opacity=".79" stroke-linecap="round"/>
+    <path d="M227 292 Q244 262 258 248" fill="none" stroke="#00ccff" stroke-width="2.2" stroke-opacity=".79" stroke-linecap="round"/>
+    <path d="M231 300 Q252 272 268 262" fill="none" stroke="#00d4ff" stroke-width="2.2" stroke-opacity=".80" stroke-linecap="round"/>
+    <path d="M231 309 Q255 284 272 277" fill="none" stroke="#00d4ff" stroke-width="2.2" stroke-opacity=".78" stroke-linecap="round"/>
+    <path d="M229 319 Q255 296 272 294" fill="none" stroke="#00d4ff" stroke-width="2.2" stroke-opacity=".76" stroke-linecap="round"/>
+  </g>
+  <!-- Logo void -->
+  <circle cx="200" cy="315" r="22" fill="#080620"/>
+  <!-- Logo border ring -->
+  <circle cx="200" cy="315" r="130" fill="none" stroke="rgba(0,212,255,.2)" stroke-width="1"/>
+
+  <!-- Text block -->
+  <!-- Eyebrow -->
+  <text x="370" y="270" font-family="Georgia, serif" font-size="18" fill="#00d4ff" letter-spacing="6" font-style="italic" opacity=".85">CODAL HUB</text>
+
+  <!-- Main title -->
+  <text x="368" y="348" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#f4f2ed" font-weight="400" letter-spacing="-2">Scalable Software</text>
+  <text x="368" y="428" font-family="Georgia, 'Times New Roman', serif" font-size="72" fill="#f4f2ed" font-weight="400" letter-spacing="-2">&amp; Web Applications</text>
+
+  <!-- Divider line -->
+  <line x1="368" y1="462" x2="820" y2="462" stroke="rgba(244,242,237,.12)" stroke-width="1"/>
+
+  <!-- Tagline -->
+  <text x="370" y="496" font-family="Arial, sans-serif" font-size="22" fill="rgba(244,242,237,.5)" font-weight="300" letter-spacing="1">codalhub.com</text>
+
+  <!-- Corner accent dots -->
+  <circle cx="60" cy="60" r="3" fill="#00d4ff" opacity=".3"/>
+  <circle cx="1140" cy="60" r="3" fill="#cc44ff" opacity=".3"/>
+  <circle cx="60" cy="570" r="3" fill="#44ffaa" opacity=".3"/>
+  <circle cx="1140" cy="570" r="3" fill="#00d4ff" opacity=".3"/>
+
+  <!-- Top border accent -->
+  <rect x="0" y="0" width="1200" height="3" fill="url(#bg)" opacity="0"/>
+  <line x1="0" y1="0" x2="1200" y2="0" stroke="url(#bg)" stroke-width="0"/>
+  <rect x="368" y="0" width="464" height="2" fill="#00d4ff" opacity=".25"/>
+</svg>
