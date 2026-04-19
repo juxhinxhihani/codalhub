@@ -25,8 +25,8 @@ export default function Contact() {
           Whether you&apos;re a startup with a bold idea or an established company modernizing core systems &mdash; we&apos;re here to engineer it properly.
         </p>
         <div className="hero-btns reveal reveal-delay-3" style={{ justifyContent: 'center' }}>
-          <a href="mailto:juxhin@codalhub.com" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Start a Project</a>
-          <a href="https://www.codalhub.com" className="btn-ghost" style={{ textDecoration: 'none', display: 'inline-block' }} target="_blank" rel="noopener noreferrer">codalhub.com</a>
+          <a href="mailto:juxhin@codalhub.com" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>Email Us</a>
+          <a href="https://www.linkedin.com/company/codal-hub" className="btn-ghost" style={{ textDecoration: 'none', display: 'inline-block' }} target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </div>
     </section>
